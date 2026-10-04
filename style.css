@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-utama: #181f1c;
+    --bg-panel: #1f2924;
+    --bg-hover: #25322c;
+    --hijau-aksen: #A6E3A1;
+    --hijau-redup: #4d6b52;
+    --teks-utama: #e6ede8;
+    --teks-redup: #7c8f83;
+    --merah-lembut: #e38a8a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-utama);
+    color: var(--teks-utama);
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card__header h1 {
+    font-size: 1.4rem;
+}
+
+.ringkasan {
+    font-size: 0.8rem;
+    color: var(--teks-redup);
+}
+
+/* ---------- Form tambah ---------- */
+
+.form-tambah {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.form-tambah input {
+    flex: 1;
+    background: var(--bg-panel);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--teks-utama);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.form-tambah input::placeholder {
+    color: var(--teks-redup);
+}
+
+.form-tambah button {
+    background: var(--hijau-aksen);
+    color: #0d130f;
+    border: none;
+    border-radius: 8px;
+    width: 44px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.form-tambah button:hover {
+    background: var(--hijau-redup);
+    color: var(--teks-utama);
+}
+
+/* ---------- Filter ---------- */
+
+.filter {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.filter__btn {
+    background: var(--bg-panel);
+    color: var(--teks-redup);
+    border: none;
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter__btn.aktif {
+    background: var(--hijau-aksen);
+    color: #0d130f;
+}
+
+/* ---------- Daftar tugas ---------- */
+
+.daftar-tugas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tugas-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-panel);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.tugas-item.tersembunyi {
+    display: none;
+}
+
+.tugas-centang {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--teks-redup);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+.tugas-item.selesai .tugas-centang {
+    background: var(--hijau-aksen);
+    border-color: var(--hijau-aksen);
+}
+
+.tugas-item.selesai .tugas-centang::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid #0d130f;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.tugas-teks {
+    flex: 1;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.tugas-item.selesai .tugas-teks {
+    color: var(--teks-redup);
+    text-decoration: line-through;
+}
+
+.tugas-hapus {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--teks-redup);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.tugas-hapus:hover {
+    color: var(--merah-lembut);
+}
+
+.kosong {
+    text-align: center;
+    color: var(--teks-redup);
+    font-size: 0.85rem;
+    padding: 24px 0;
+    list-style: none;
+}
